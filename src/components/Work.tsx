@@ -3,42 +3,59 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
-const projects = [
+const webProjects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
-  },
-  {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
+    title: "The Mail Whale Admin",
+    category: "React.js Admin Dashboard",
+    tools: "React.js, Tailwind CSS, Redux Toolkit",
     image: "/images/radix.png",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
+    title: "Portfolio Website",
+    category: "Personal Portfolio",
+    tools: "React.js, GSAP, CSS",
+    image: "/images/Solidx.png",
+  },
+  {
+    title: "Stock Research",
+    category: "Investment Analysis",
+    tools: "Fundamental Analysis, Screener.in",
+    image: "/images/sapphire.png",
+  },
+];
+
+const mobileProjects = [
+  {
+    title: "Wealthbrain",
+    category: "Fintech Mobile App",
+    tools: "React Native, Redux, Charts, Push Notifications",
+    image: "/images/Maxlife.png",
+  },
+  {
+    title: "The Mail Whale",
+    category: "Parcel Tracking System",
+    tools: "React Native, REST API, Encryption",
     image: "/images/bond.png",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
+    title: "Fitness Tracker App",
+    category: "Personal Project",
+    tools: "React Native, OTP Auth, AsyncStorage",
     image: "/images/sapphire.png",
-  },
-  {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
   },
 ];
 
 const Work = () => {
+  const [activeTab, setActiveTab] = useState<"website" | "mobile">("website");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  const projects = activeTab === "website" ? webProjects : mobileProjects;
+
+  const handleTabChange = (tab: "website" | "mobile") => {
+    setActiveTab(tab);
+    setCurrentIndex(0);
+  };
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -65,9 +82,27 @@ const Work = () => {
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
+        <div className="work-header">
+          <h2>
+            My <span>Work</span>
+          </h2>
+          <div className="work-tabs">
+            <button
+              className={`work-tab ${activeTab === "website" ? "active" : ""}`}
+              onClick={() => handleTabChange("website")}
+              data-cursor="disable"
+            >
+              Websites
+            </button>
+            <button
+              className={`work-tab ${activeTab === "mobile" ? "active" : ""}`}
+              onClick={() => handleTabChange("mobile")}
+              data-cursor="disable"
+            >
+              Mobile Apps
+            </button>
+          </div>
+        </div>
 
         <div className="carousel-wrapper">
           {/* Navigation Arrows */}
