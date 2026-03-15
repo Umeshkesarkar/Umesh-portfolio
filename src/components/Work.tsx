@@ -1,26 +1,36 @@
 import { useState, useCallback } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import { MdArrowBack, MdArrowForward, MdOpenInNew } from "react-icons/md";
 
 const webProjects = [
   {
-    title: "The Mail Whale Admin",
+    title: "The Mail Whale",
     category: "React.js Admin Dashboard",
     tools: "React.js, Tailwind CSS, Redux Toolkit",
     image: "/images/radix.png",
+    link: "https://www.themailwhale.in/tmw/",
   },
   {
     title: "Portfolio Website",
     category: "Personal Portfolio",
     tools: "React.js, GSAP, CSS",
     image: "/images/Solidx.png",
+    link: "https://umesh-portfolio-one.vercel.app/",
   },
   {
     title: "Stock Research",
     category: "Investment Analysis",
     tools: "Fundamental Analysis, Screener.in",
     image: "/images/sapphire.png",
+    link: "#",
+  },
+  {
+    title: "The Mail Whale Dashboard",
+    category: "React.js Admin Dashboard",
+    tools: "React.js, Tailwind CSS, Redux Toolkit",
+    image: "/images/radix.png",
+    link: "https://www.themailwhale.in/dashboard/",
   },
 ];
 
@@ -30,18 +40,21 @@ const mobileProjects = [
     category: "Fintech Mobile App",
     tools: "React Native, Redux, Charts, Push Notifications",
     image: "/images/Maxlife.png",
+    link: "",
   },
   {
     title: "The Mail Whale",
     category: "Parcel Tracking System",
     tools: "React Native, REST API, Encryption",
     image: "/images/bond.png",
+    link: "#",
   },
   {
     title: "Fitness Tracker App",
     category: "Personal Project",
     tools: "React Native, OTP Auth, AsyncStorage",
     image: "/images/sapphire.png",
+    link: "#",
   },
 ];
 
@@ -147,6 +160,20 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
+                        {project.link && (
+                          <div className="carousel-link-container">
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="carousel-link-btn"
+                              data-cursor="pointer"
+                            >
+                              <span>{activeTab === "website" ? "Live Project" : "App Link"}</span>
+                              <MdOpenInNew className="link-icon" />
+                            </a>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">

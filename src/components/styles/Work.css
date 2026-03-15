@@ -192,6 +192,42 @@
   right: -70px;
 }
 
+/* ── Link Button ── */
+.carousel-link-container {
+  margin-top: 15px;
+}
+
+.carousel-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--accentColor);
+  color: #0f002c;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  width: fit-content;
+  border: 1px solid var(--accentColor);
+}
+
+.carousel-link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(94, 234, 212, 0.3);
+  background: transparent;
+  color: var(--accentColor);
+}
+
+.carousel-link-btn span {
+  font-weight: 500;
+}
+
+.link-icon {
+  font-size: 18px;
+}
+
 /* ── Dot Indicators ── */
 .carousel-dots {
   display: flex;

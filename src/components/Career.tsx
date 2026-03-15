@@ -21,10 +21,7 @@ const Career = () => {
               <h3>2022</h3>
             </div>
             <p>
-              Built React Native fintech app with user authentication, push
-              notifications, and interactive financial charts for retail investors. 
-              Engineered PDF export, CSV download workflow automation. Built responsive UI
-              using Flexbox. Shipped app to both App Store and Google Play Store.
+              Developed a React Native fintech app with authentication, push notifications, and financial charts. Implemented PDF export and CSV downloads, built responsive UI with Flexbox, and deployed to App Store and Google Play Store.
             </p>
           </div>
           <div className="career-info-box">
@@ -36,10 +33,7 @@ const Career = () => {
               <h3>NOW</h3>
             </div>
             <p>
-              Architected and built a cross-platform React Native app enabling
-              real-time encrypted parcel tracking. Developed React.js admin
-              dashboard using Tailwind CSS. Implemented global state management
-              with Redux Toolkit and managed full deployment pipeline.
+              Developed a cross-platform React Native app for secure last-mile parcel delivery with end-to-end encryption and real-time interaction. Built a React.js admin dashboard using Tailwind CSS and Redux Toolkit.
             </p>
           </div>
         </div>
