@@ -1,0 +1,105 @@
+.research-track-wrap {
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #1f2937 transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.research-track-wrap::-webkit-scrollbar {
+  height: 4px;
+}
+
+.research-track-wrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.research-track-wrap::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 2px;
+}
+
+.research-card {
+  --accent: #3b82f6;
+  width: 260px;
+  height: 320px;
+  background: #111;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s;
+}
+
+.research-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 40px -8px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(var(--accent-rgb), 0.15);
+}
+
+.research-card.buy {
+  --accent: #10b981;
+  --accent-rgb: 16, 185, 129;
+}
+
+.research-card.watch {
+  --accent: #f59e0b;
+  --accent-rgb: 245, 158, 11;
+}
+
+.research-card.avoid {
+  --accent: #ef4444;
+  --accent-rgb: 239, 68, 68;
+}
+
+.research-card:hover {
+  border-color: rgba(var(--accent-rgb, 59, 130, 246), 0.3);
+}
+
+.card-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  z-index: 3;
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(255, 255, 255, 0) 70%);
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.research-card:hover .card-shine {
+  opacity: 1;
+  animation: card-shine 2s infinite;
+}
+
+.card-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 24px;
+  z-index: 0;
+  background: radial-gradient(circle at 50% 0%, var(--accent) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.research-card:hover .card-glow {
+  opacity: 0.18;
+}
+
+@keyframes card-shine {
+  0% {
+    background-position: -100% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}

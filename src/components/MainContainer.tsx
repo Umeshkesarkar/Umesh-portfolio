@@ -12,7 +12,10 @@ import setSplitText from "./utils/splitText";
 
 const TechStack = lazy(() => import("./TechStack"));
 
-const MainContainer = ({ children }: PropsWithChildren) => {
+interface MainContainerProps extends PropsWithChildren {
+}
+
+const MainContainer = ({ children }: MainContainerProps) => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
     window.innerWidth > 1024
   );
@@ -32,7 +35,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   return (
     <div className="container-main">
       <Cursor />
-      <Navbar />
+      <Navbar isHomeView={true} />
       <SocialIcons />
       {isDesktopView && children}
       <div id="smooth-wrapper">

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
@@ -8,7 +9,12 @@ import "./styles/Navbar.css";
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
 
-const Navbar = () => {
+interface NavbarProps {
+  isHomeView: boolean;
+}
+
+const Navbar = ({ isHomeView }: NavbarProps) => {
+  const navigate = useNavigate();
   useEffect(() => {
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
@@ -54,17 +60,67 @@ const Navbar = () => {
         </a>
         <ul>
           <li>
-            <a data-href="#about" href="#about">
+            <a
+              data-href="#about"
+              href="#about"
+              onClick={(e) => {
+                if (!isHomeView) {
+                  e.preventDefault();
+                  navigate("/");
+                  setTimeout(() => {
+                    smoother.scrollTo("#about", true, "top top");
+                  }, 100);
+                }
+              }}
+            >
               <HoverLinks text="ABOUT" />
             </a>
           </li>
           <li>
-            <a data-href="#work" href="#work">
+            <a
+              data-href="#work"
+              href="#work"
+              onClick={(e) => {
+                if (!isHomeView) {
+                  e.preventDefault();
+                  navigate("/");
+                  setTimeout(() => {
+                    smoother.scrollTo("#work", true, "top top");
+                  }, 100);
+                }
+              }}
+            >
               <HoverLinks text="WORK" />
             </a>
           </li>
           <li>
-            <a data-href="#contact" href="#contact">
+            <a
+              data-href="#research"
+              href="#research"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/research");
+                // Scroll to top on research view
+                window.scrollTo(0, 0);
+              }}
+            >
+              <HoverLinks text="RESEARCH" />
+            </a>
+          </li>
+          <li>
+            <a
+              data-href="#contact"
+              href="#contact"
+              onClick={(e) => {
+                if (!isHomeView) {
+                  e.preventDefault();
+                  navigate("/");
+                  setTimeout(() => {
+                    smoother.scrollTo("#contact", true, "top top");
+                  }, 100);
+                }
+              }}
+            >
               <HoverLinks text="CONTACT" />
             </a>
           </li>

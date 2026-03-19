@@ -14,6 +14,8 @@ const Contact = () => {
                 umesh.kes123@gmail.com
               </a>
             </p>
+            <h4>Contact No</h4>
+            <p>+91 8424836438</p>
             <h4>Education</h4>
             <p>BSc in Information Technology</p>
           </div>
